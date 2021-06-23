@@ -51,3 +51,23 @@ fn empty_linked_list() {
 
     assert_eq!(list, LinkedList::Nil);
 }
+
+#[test]
+fn prepend_linked_list() {
+    let mut list = LinkedList::new();
+
+    list = list.prepend(1);
+    list = list.prepend(2);
+    list = list.prepend(3);
+
+    assert_eq!(
+        list,
+        LinkedList::Cons(
+            3,
+            Box::new(LinkedList::Cons(
+                2,
+                Box::new(LinkedList::Cons(1, Box::new(LinkedList::Nil)))
+            ))
+        )
+    )
+}
