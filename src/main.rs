@@ -93,3 +93,14 @@ fn linked_list_len() {
     list = list.clear();
     assert_eq!(list.len(), 0);
 }
+
+#[test]
+fn stringify_linked_list() {
+    let mut list = LinkedList::new();
+
+    list = list.prepend(1);
+    list = list.prepend(2);
+    list = list.prepend(3);
+
+    assert_eq!(list.stringify(), "3, 2, 1, Nil")
+}
