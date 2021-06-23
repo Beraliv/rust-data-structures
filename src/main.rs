@@ -1,8 +1,16 @@
 use crate::LinkedList::*;
+use std::cmp::PartialEq;
 
+#[derive(Debug)]
 enum LinkedList {
     Cons(u32, Box<LinkedList>),
     Nil,
+}
+
+impl PartialEq for LinkedList {
+    fn eq(&self, other: &Self) -> bool {
+        self.stringify() == other.stringify()
+    }
 }
 
 impl LinkedList {
@@ -35,4 +43,11 @@ impl LinkedList {
 
 fn main() {
     println!("Hello, world!");
+}
+
+#[test]
+fn empty_linked_list() {
+    let list = LinkedList::new();
+
+    assert_eq!(list, LinkedList::Nil);
 }
