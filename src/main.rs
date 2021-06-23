@@ -75,3 +75,21 @@ fn prepend_linked_list() {
         )
     )
 }
+
+#[test]
+fn linked_list_len() {
+    let mut list = LinkedList::new();
+    assert_eq!(list.len(), 0);
+
+    list = list.prepend(3);
+    assert_eq!(list.len(), 1);
+
+    list = list.prepend(2);
+    assert_eq!(list.len(), 2);
+
+    list = list.prepend(1);
+    assert_eq!(list.len(), 3);
+
+    list = list.clear();
+    assert_eq!(list.len(), 0);
+}
